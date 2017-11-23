@@ -1,0 +1,19 @@
+{
+  "name": "config-merge",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Node",
+    "NPM",
+    "Gulp"
+  ],
+  "author": "Stef Spakman <mail@stefspakman.com>",
+  "license": "ISC",
+  "dependencies": {
+    "underscore-node": "^0.1.2"
+  }
+}
