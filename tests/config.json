@@ -1,24 +1,4 @@
 {
-  "version": "4.1.0",
-  "versiondate": "2017-09-26",
-  "gulpVersion": "4.1.0",
-  "allowLocalOverride": true,
-  "0" : {
-    "value": "0",
-    "1" : {
-      "value": "1",
-      "2" : {
-        "value": ["2", "4"],
-        "3" : {
-          "value": "3",
-          "4" : {
-            "value": "4",
-            "5" : {
-              "value": "5"
-            }
-          }
-        }
-      }
-    }
-  }
+  "fist": "Hello",
+  "second": "Hey"
 }
