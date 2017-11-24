@@ -1,11 +1,11 @@
-# Config Merge [![NPM version][npm-image]][npm-url]
+# Config overwrite [![NPM version][npm-image]][npm-url]
 
 Allow your users to overwrite default config. 
 
 ## Install
 
 ```
-$ npm install --save configmerge
+$ npm install --save config-overwrite
 ```
 
 ## Usage
@@ -14,10 +14,10 @@ The function requires two parameters, both can be an object or a path as a strin
 Example:
 
 ```js
-var configmerge = require('configmerge');
+var configoverwrite = require('config-overwrite');
 var config = require('./config.json');
 
-var configuration =  configmerge.merge(config, './config.local.json', function(err, response) {
+var configuration =  configoverwrite.generate(config, './config.local.json', function(err, response) {
   if (err)
     console.log ('error', err.message, err.stack)
   else
@@ -62,5 +62,5 @@ result:
 * Initial release
 
 
-[npm-url]: https://www.npmjs.com/package/configmerge
-[npm-image]: https://img.shields.io/npm/v/configmerge.svg
+[npm-url]: https://www.npmjs.com/package/configoverwrite
+[npm-image]: https://img.shields.io/npm/v/configoverwrite.svg

@@ -1,4 +1,4 @@
-var configmerge = require('../index.js');
+var configoverwrite = require('../index.js');
 var config = require('./config.json');
 
 var configObject = {
@@ -18,7 +18,7 @@ var configObject = {
   }
 };
 
-var configuration =  configmerge.merge(config, './config.local.json', function(err, response) {
+var configuration =  configoverwrite.generate(config, './config.local.json', function(err, response) {
   if (err)
     console.log ('error', err.message, err.stack)
   else
@@ -26,7 +26,7 @@ var configuration =  configmerge.merge(config, './config.local.json', function(e
 });
 console.log(configuration);
 
-var configuration =  configmerge.merge(config, configObject, function(err, response) {
+var configuration =  configoverwrite.generate(config, configObject, function(err, response) {
   if (err)
     console.log ('error', err.message, err.stack)
   else

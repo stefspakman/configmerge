@@ -2,7 +2,7 @@ var
   fs = require('fs'),
   _ = require('underscore-node');
 
-exports.merge = function(config, localconfig, done) {
+exports.generate = function(config, localconfig, done) {
   config = openFile(config, function (err, result) {
     if (!err)
       return ('result', result)
