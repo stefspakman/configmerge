@@ -18,20 +18,21 @@ var configObject = {
   }
 };
 
-var configuration =  configoverwrite.generate(config, './config.local.json', function(err, response) {
+var configuration =  configoverwrite(config, './tests/config.local.json', function(err, response) {
+  if (err)
+    console.log ('error', err.message, err.stack);
+  else
+    return response
+});
+console.log(configuration);
+
+var configuration =  configoverwrite(config, configObject, function(err, response) {
   if (err)
     console.log ('error', err.message, err.stack)
   else
     return response
 });
 console.log(configuration);
-
-var configuration =  configoverwrite.generate(config, configObject, function(err, response) {
-  if (err)
-    console.log ('error', err.message, err.stack)
-  else
-    return response
-});
 
 var fs = require('fs');
 fs.writeFileSync('./result.json', JSON.stringify(configuration));

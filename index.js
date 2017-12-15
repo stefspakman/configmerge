@@ -1,8 +1,10 @@
 var
   fs = require('fs'),
   _ = require('underscore-node');
+  log = require('fancy-log');
+  chalk= require('chalk');
 
-exports.generate = function(config, localconfig, done) {
+function defaultMode(config, localconfig, done) {
   config = openFile(config, function (err, result) {
     if (!err)
       return ('result', result)
@@ -15,9 +17,24 @@ exports.generate = function(config, localconfig, done) {
   if (!config || !localconfig) {
     return done (Error ('Cannot open file'))
   } else {
+    if (!checkVersion(config, localconfig)){
+      log(chalk.red('The versions of your configuration files do not match, please update your local config file'));
+      process.exit(1);
+    }
     return done (null, createConfig(config, localconfig));
   }
 }
+
+function checkVersion(config, local) {
+  if (!config['version'] || !local['version']){
+    return 'No version is provided'
+  }
+
+  return config.version === local.version
+}
+
+module.exports = defaultMode;
+module.exports.generate = defaultMode;
 
 function UserException(message) {
   this.message = message;
@@ -38,6 +55,7 @@ function openFile(object, done){
 }
 
 function createConfig(config, local) {
+
   var newConfig = {};
   Object.keys(config).forEach(function(key) {
     if (config[key] instanceof Array) {
